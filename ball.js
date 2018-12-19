@@ -1,3 +1,4 @@
+//The Class with Ball production,you can generate many object
 class Ball
 {
 	constructor(props){
@@ -20,7 +21,17 @@ class Ball
 
 	
 	render(ctx){
-		
+		let{x,y,scaleX,scaleY,vx,vy,r,y3d,x3d,strokeStyle,fillStyle,alpha} = this;
+		ctx.save();
+		ctx.fillStyle = fillStyle;
+		ctx.globalAlpha = alpha;
+		ctx.strokeStyle = strokeStyle;
+		ctx.beginPath();
+		ctx.arc(0,0,r,Math.PI*2,false);
+		ctx.fill();
+		ctx.stroke();
+		ctx.restore();
+		return this;
 	}
 
 }
