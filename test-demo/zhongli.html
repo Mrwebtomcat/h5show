@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <!--声明当前页面编码集（中文编码<gbk,gb2312>,国际编码<utf-8>-->
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!--声明当前页面的三要素-->
+        <title>Document</title>
+        <meta name="Keywords" content="关键词，关键词">
+        <meta name="Description" content="jack-tang production">
+		<script src="ball.js"></script>
+
+    </head>
+	<body>
+		<canvas id="can" ></canvas>
+		<script type="text/javascript">
+			let can = document.getElementById('can');
+			let w = can.width = 650;
+			let h = can.height = 600;
+			let ctx = can.getContext('2d');
+			can.style.border = "1px solid red";
+			//实例化一个小球
+			let ball = new Ball({
+				x:w/2,
+				y:h/6,
+				r:30
+			})
+			let g = 0.2,vy=0;
+			domove();
+
+
+			var globalid;
+			function domove(){
+				globalid = window.requestAnimationFrame(domove);	
+				ctx.clearRect(0,0,w,h)
+				ball.y += vy;
+				vy +=g;
+				if(ball.y + ball.r >=h){
+					ball.y = h - ball.r;
+					vy *=-0.8;
+					if(vy>-1.6){
+						cancelAnimationFrame(globalid);
+					}
+				}
+				ball.render(ctx);
+			}
+		</script>
+	</body>
+</html>
+

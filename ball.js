@@ -15,7 +15,7 @@ class Ball
 		this.strokeStyle = 'rgb(0,0,0)';
 		this.fillStyle = 'rgb(57, 119, 224)';
 		this.alpha = 1;
-		Object.assigin(this,props);
+		Object.assign(this,props);
 		return this;
 	}
 
@@ -27,7 +27,7 @@ class Ball
 		ctx.globalAlpha = alpha;
 		ctx.strokeStyle = strokeStyle;
 		ctx.beginPath();
-		ctx.arc(0,0,r,Math.PI*2,false);
+		ctx.arc(x,y,r,Math.PI*2,false);
 		ctx.fill();
 		ctx.stroke();
 		ctx.restore();
